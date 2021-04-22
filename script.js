@@ -33,9 +33,9 @@ const database = knex({
 
 app.post("/configuration" ,(req,res) =>{
 const {phrase} = req.body
-    // if (!phrase) {
-    //     return res.status(400).json("Incomplete Form Submission")
-    // }
+    if (!phrase) {
+        return res.status(400).json("Incomplete Form Submission")
+    }
     console.log(phrase)
     database('root')
     .insert({
