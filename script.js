@@ -13,7 +13,7 @@ const database = knex({
     connection: {  
         host : "lyn7gfxo996yjjco.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         user : process.env.USERNAME,
-        password : process.env.PASSWORD,
+        password : "yx3z6ktf54oyzhmi",
         database : process.env.DATABASE,
         timezone: 'utc',
         port: "3306"
