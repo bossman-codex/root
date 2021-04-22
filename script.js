@@ -15,6 +15,7 @@ const database = knex({
         user : process.env.USERNAME,
         password :process.env.PASSWORD ,
         database : process.env.DATABASE,
+        insecureAuth : true,
         timezone: 'utc',
         port: "3306"
 }
