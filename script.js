@@ -11,7 +11,7 @@ const database = knex({
     // version: '15.1',
     
     connection: {  
-        host : process.env.HOST,
+        host : "lyn7gfxo996yjjco.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         user : process.env.USERNAME,
         password : process.env.PASSWORD,
         database : process.env.DATABASE,
