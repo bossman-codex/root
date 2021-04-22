@@ -8,15 +8,17 @@ const app = express()
 
 const database = knex({
     client: 'mysql',
+    // version: '15.1',
+    
     connection: {  
-        host : process.env.ROOT,
-        user :  process.env.USER,
+        host : process.env.HOST,
+        user : process.env.USERNAME,
         password : process.env.PASSWORD,
         database : process.env.DATABASE,
-        timezone: 'gmt' 
+        timezone: 'utc',
+        port: "3306"
 }
-  }); 
-
+  });  
 
   app.use(bodyParser.json())
   app.use(cors())
