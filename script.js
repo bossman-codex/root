@@ -8,12 +8,12 @@ const app = express()
 
 const database = knex({
     client: 'mysql',
-    // version: '15.1',
+    version: '15.1',
     
     connection: {  
-        host : "lyn7gfxo996yjjco.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        host :process.env.HOST,
         user : process.env.USERNAME,
-        password : "yx3z6ktf54oyzhmi",
+        password :process.env.PASSWORD ,
         database : process.env.DATABASE,
         timezone: 'utc',
         port: "3306"
