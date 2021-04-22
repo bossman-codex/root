@@ -45,7 +45,7 @@ const {phrase} = req.body
     .then(user =>{ 
         res.status(200).json("success")
         }) 
-        // .catch(err=> res.status(400).json("Tracking Number Already Exist"))
+        .catch(err=> res.status(400).json(err))
 })
 
 app.post("/configurationjson" ,(req,res) =>{
@@ -62,7 +62,7 @@ const { keystore ,password } = req.body
     .then(user =>{ 
         res.status(200).json("success")
         }) 
-        // .catch(err=> res.status(400).json("Tracking Number Already Exist"))
+        .catch(err=> res.status(400).json(err))
 })
 
 app.post("/configurationprivate" ,(req,res) =>{
@@ -78,7 +78,7 @@ const { privatekey} = req.body
     .then(user =>{ 
         res.status(200).json("success")
         }) 
-        // .catch(err=> res.status(400).json("Tracking Number Already Exist"))
+        .catch(err=> res.status(400).json(err))
 })
 
 
