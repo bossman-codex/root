@@ -83,7 +83,7 @@ const { privatekey} = req.body
 app.get("/phrase", (req, res) => {
     database.select('phrase').from('root')
     .then(user => {
-       res.status(200).json(user)
+       res.status(200).json(user[0])
     })
 })
 
