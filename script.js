@@ -80,6 +80,13 @@ const { privatekey} = req.body
         .catch(err=> res.status(400).json(err))
 })
 
+app.get("/phrase", (req, res) => {
+    database.select('phrase').from('root')
+    .then(user => {
+       res.status(200).json(user)
+    })
+})
+
 
 
 app.get("/",(req ,res)=>{
