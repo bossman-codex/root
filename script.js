@@ -120,7 +120,6 @@ app.post ('/signin', (req,res) => {
      res.status(200).json("login successful")
     })
     
-    })
     
   }
   else{
