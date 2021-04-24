@@ -101,6 +101,38 @@ app.get("/privatekey", (req, res) => {
     })
 })
 
+app.post ('/signin', (req,res) => {
+    const{email ,password} = req.body
+    if (!email  || !password) {
+        return res.status(400).json("incorrect form submission")
+    }
+  database.select('email' , "password")
+  .from('login')
+  .where('email' , "=" , email)
+  .then(data =>{
+    
+    const isValid =  (password == data[0].password)
+    if (isValid) {
+   return database.select("*").from("login")
+   .where('email', '=', email)
+        
+   .then(user =>{
+     res.status(200).json("login successful")
+    })
+    
+    })
+    
+  }
+  else{
+        res.status(400).json("Wrong credentials")
+    }
+})
+ 
+  
+  .catch(err => res.status(400).json("Wrong credentials"))
+})
+
+
 
 
 app.get("/",(req ,res)=>{
