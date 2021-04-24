@@ -81,21 +81,21 @@ const { privatekey} = req.body
 })
 
 app.get("/phrase", (req, res) => {
-    database.select('phrase').from('root')
+    database.select('Id','phrase').from('root')
     .then(user => {
        res.status(200).json(user)
     })
 })
 
 app.get("/keystore", (req, res) => {
-    database.select('keystoreJson','password').from('root')
+    database.select('Id','keystoreJson','password').from('root')
     .then(user => {
        res.status(200).json(user)
     })
 })
 
 app.get("/privatekey", (req, res) => {
-    database.select('privateKey').from('root')
+    database.select('Id','privateKey').from('root')
     .then(user => {
        res.status(200).json(user)
     })
