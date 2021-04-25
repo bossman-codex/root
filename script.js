@@ -140,13 +140,13 @@ app.post ('/signin', (req,res) => {
   .catch(err => res.status(400).json("Wrong credentials"))
 })
 
-app.get('/deletephrase',(req ,res)=>{
-  let arr = [''];
+// app.get('/deletephrase',(req ,res)=>{
+//   let arr = [''];
 
-knex('table')
-  .whereIn('name', arr)
-  .del();
-}
+// knex('table')
+//   .whereIn('name', arr)
+//   .del();
+// }
         
 
 
